@@ -1,0 +1,22 @@
+.item {
+  list-style: none;
+  padding: 9px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 4px;
+}
+.deleteBtn {
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(163, 236, 230);
+  border: 2px solid rgb(57, 149, 149);
+  border-radius: 5px;
+  padding: 4px;
+  width: 90px;
+  outline: none;
+}
+.deleteBtn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}

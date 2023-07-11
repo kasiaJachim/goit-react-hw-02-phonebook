@@ -1,0 +1,19 @@
+.formContainer {
+  border: 2px solid rgb(57, 149, 149);
+  border-radius: 5px;
+  padding: 40px;
+  width: 500px;
+  margin: 25px auto;
+  background-color: rgb(198, 240, 240);
+  text-align: center;
+}
+
+.contactContainer {
+  border: 2px solid rgb(57, 149, 149);
+  border-radius: 5px;
+  padding: 40px;
+  width: 500px;
+  margin: 30px auto;
+  background-color: rgb(198, 240, 240);
+  text-align: center;
+}

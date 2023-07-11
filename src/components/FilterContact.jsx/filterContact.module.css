@@ -1,0 +1,9 @@
+.filterLabel {
+  padding: 10px;
+}
+.filterInput {
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid rgb(57, 149, 149);
+  border-radius: 5px;
+}
