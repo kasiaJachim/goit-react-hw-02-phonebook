@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { ContactForm } from 'components/ContactForm.jsx/ContactForm';
 import { ContactList } from 'components/ContactList.jsx/ContactList';
 import { FilterContact } from 'components/FilterContact.jsx/FilterContact';
@@ -13,14 +13,15 @@ export class AddContacts extends Component {
   };
 
   addContact = newContact => {
+    const id = nanoid();
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
+      contacts: [...prevState.contacts, { ...newContact, id }],
     }));
   };
-  deleteContact = index => {
+  deleteContact = id => {
     this.setState(prevState => {
       const updateContacts = [...prevState.contacts];
-      updateContacts.splice(index, 1);
+      updateContacts.splice(id, 1);
       return { contacts: updateContacts };
     });
   };
@@ -56,7 +57,3 @@ export class AddContacts extends Component {
     );
   }
 }
-
-AddContacts.propTypes = {
-  addContact: PropTypes.func,
-};
