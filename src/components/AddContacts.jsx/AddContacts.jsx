@@ -10,12 +10,28 @@ export class AddContacts extends Component {
   state = {
     contacts: contacts,
     filter: '',
-  };
+    };
+    checkContact = contact => {
+        const { name } = contact;
+        const lowerCaseName = name.toLowerCase();
+        const isNameUnique = !this.state.contacts.some(
+          existingContact => existingContact.name.toLowerCase() === lowerCaseName
+        );
+    
+        if (isNameUnique) {
+          const id = nanoid();
+          this.setState(prevState => ({
+            contacts: [...prevState.contacts, { ...contact, id }],
+          }));
+          this.setState({ name: '', number: '' });
+        } else {
+          alert(`${name} is already in contacts.`);
+        }
+      };
 
   addContact = newContact => {
-    const id = nanoid();
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, { ...newContact, id }],
+      contacts: [...prevState.contacts,newContact],
     }));
   };
   deleteContact = id => {
@@ -40,7 +56,7 @@ export class AddContacts extends Component {
       <div>
         <div className={css.formContainer}>
           <h1 className={css.phoneBook}>PhoneBook</h1>
-          <ContactForm addContact={this.addContact} />
+          <ContactForm addContact={this.checkContact} />
         </div>
         <div className={css.contactContainer}>
           <h2 className={css.contacts}>Contacts</h2>
